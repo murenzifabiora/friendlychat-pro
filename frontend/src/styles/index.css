@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-secondary;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4b5563;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* Smooth transitions on interactive elements */
+button,
+a {
+  @apply transition-all duration-150;
+}
+
+/* Input focus styles */
+input:focus,
+textarea:focus,
+select:focus {
+  @apply outline-none;
+}
+
+/* Pulse animation for recording indicator */
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+.recording-pulse::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: rgba(239, 68, 68, 0.4);
+  animation: pulse-ring 1.2s ease-out infinite;
+}
+
+/* Chat message bubble tail */
+.bubble-own {
+  border-bottom-right-radius: 4px;
+}
+
+.bubble-other {
+  border-bottom-left-radius: 4px;
+}
+
+/* Voice analysis panel glow */
+.analysis-panel {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+}
+
+/* Backdrop blur support */
+.backdrop-blur {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}

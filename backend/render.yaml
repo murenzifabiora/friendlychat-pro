@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: voicechat-backend
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5001
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: CLIENT_URL
+        sync: false
+      - key: JWT_EXPIRE
+        value: 7d
+      - key: MAX_FILE_SIZE
+        value: 52428800
